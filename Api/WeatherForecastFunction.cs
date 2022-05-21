@@ -8,46 +8,44 @@ using Microsoft.Extensions.Logging;
 
 using GaddLifeApp.Shared;
 
-namespace GaddLifeApp.Api
+namespace GaddLifeApp.Api;
+public static class WeatherForecastFunction
 {
-  public static class WeatherForecastFunction
+  private static string GetSummary(int temp)
   {
-    private static string GetSummary(int temp)
+    var summary = "Mild";
+
+    if (temp >= 32)
     {
-      var summary = "Mild";
-
-      if (temp >= 32)
-      {
-        summary = "Hot";
-      }
-      else if (temp <= 16 && temp > 0)
-      {
-        summary = "Cold";
-      }
-      else if (temp <= 0)
-      {
-        summary = "Freezing!";
-      }
-
-      return summary;
+      summary = "Hot";
+    }
+    else if (temp <= 16 && temp > 0)
+    {
+      summary = "Cold";
+    }
+    else if (temp <= 0)
+    {
+      summary = "Freezing!";
     }
 
-    [FunctionName("WeatherForecast")]
-    public static IActionResult Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
-        ILogger log)
+    return summary;
+  }
+
+  [FunctionName("WeatherForecast")]
+  public static IActionResult Run(
+      [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
+      ILogger log)
+  {
+    var randomNumber = new Random();
+    var temp = 0;
+
+    var result = Enumerable.Range(1, 5).Select(index => new WeatherForecast
     {
-      var randomNumber = new Random();
-      var temp = 0;
+      Date = DateTime.Now.AddDays(index),
+      TemperatureC = temp = randomNumber.Next(-20, 55),
+      Summary = GetSummary(temp)
+    }).ToArray();
 
-      var result = Enumerable.Range(1, 5).Select(index => new WeatherForecast
-      {
-        Date = DateTime.Now.AddDays(index),
-        TemperatureC = temp = randomNumber.Next(-20, 55),
-        Summary = GetSummary(temp)
-      }).ToArray();
-
-      return new OkObjectResult(result);
-    }
+    return new OkObjectResult(result);
   }
 }
