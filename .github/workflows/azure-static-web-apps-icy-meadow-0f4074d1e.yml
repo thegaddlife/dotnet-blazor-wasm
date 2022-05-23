@@ -15,13 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v3
       - uses: actions/setup-node@v3.2.0
         with:
-          submodules: true
           node-version: '14.x'
           cache: 'npm'
           cache-dependency-path: '**/.github/workflows/*.yml'
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
