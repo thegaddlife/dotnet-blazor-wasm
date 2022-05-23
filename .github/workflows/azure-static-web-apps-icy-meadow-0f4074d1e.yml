@@ -15,11 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/setup-node@v3.2.0
+      - uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'npm'
-          cache-dependency-path: '**/.github/workflows/*.yml'
       - uses: actions/checkout@v3
         with:
           submodules: true
