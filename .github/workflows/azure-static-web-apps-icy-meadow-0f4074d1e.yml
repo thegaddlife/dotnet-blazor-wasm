@@ -19,7 +19,7 @@ jobs:
         with:
           submodules: true
       - run: tailwindcss -i Styles/app.css -o wwwroot/app.css --minify
-        working-directory: client
+        working-directory: ./client
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
