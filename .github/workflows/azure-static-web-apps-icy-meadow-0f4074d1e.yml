@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: '14.x'
           cache: 'npm'
+      - run: npm ci
       - uses: actions/checkout@v3
         with:
           submodules: true
