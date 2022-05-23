@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <Target Name="BuildCSS" BeforeTargets="Compile">
-    <Exec Command="./tailwindcss -i ./Styles/app.css -o ./wwwroot/app.css --minify" Condition=" '$(Configuration)' == 'Release' " />
+    <Exec Command="npx tailwindcss -i Styles/app.css -o wwwroot/app.css --minify" Condition=" '$(Configuration)' == 'Release' " />
   </Target>
 
 </Project>
