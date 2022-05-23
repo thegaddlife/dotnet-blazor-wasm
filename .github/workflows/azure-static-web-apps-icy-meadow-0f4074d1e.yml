@@ -20,7 +20,7 @@ jobs:
         with:
           submodules: true
           node-version: '14.x'
-          cache: 'npx'
+          cache: 'npm'
           cache-dependency-path: '**/.github/workflows/*.yml'
       - name: Build And Deploy
         id: builddeploy
