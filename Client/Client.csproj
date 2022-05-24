@@ -17,8 +17,4 @@
     <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
-  <Target Name="BuildCSS" BeforeTargets="Compile">
-    <Exec Command="npx tailwindcss -i Styles/app.css -o wwwroot/app.css --minify" Condition=" '$(Configuration)' == 'Release' " />
-  </Target>
-
 </Project>
