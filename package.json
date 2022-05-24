@@ -4,6 +4,7 @@
   "description": "",
   "main": "tailwind.config.js",
   "scripts": {
+    "tailwind": "tailwindcss -i Client/Styles/app.css -o Client/wwwroot/app.css --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
