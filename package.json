@@ -4,9 +4,14 @@
   "description": "",
   "main": "tailwind.config.js",
   "scripts": {
-    "tailwind": "tailwindcss -i Client/Styles/app.css -o Client/wwwroot/app.css --minify",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tailwind-dev": "cross-env NODE_ENV=development ./node_modules/tailwindcss/lib/cli.js -i ./Client/Styles/app.css -o ./Client/wwwroot/css/app.css --watch",
+    "tailwind-prod": "cross-env NODE_ENV=production ./node_modules/tailwindcss/lib/cli.js -i ./Client/Styles/app.css -o ./Client/wwwroot/css/app.css --minify"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "tailwindcss": "^3.0.24"
+  }
 }

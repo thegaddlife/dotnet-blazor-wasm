@@ -21,9 +21,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 14
-          cache: 'npm'
+          cache: "npm"
       - run: npm ci
-      - run: npm run tailwind
+      - run: npm run tailwind-prod
       - name: Build and Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
