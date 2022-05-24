@@ -16,7 +16,6 @@ jobs:
     name: Build and Deploy Job
     steps:
       
-      - run: npm ci
       - uses: actions/checkout@v3
         with:
           submodules: true
